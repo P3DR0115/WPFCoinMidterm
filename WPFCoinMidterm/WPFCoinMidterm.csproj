@@ -69,6 +69,14 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\Coin.cs" />
+    <Compile Include="Models\CurrencyRepo.cs" />
+    <Compile Include="Models\IBankNote.cs" />
+    <Compile Include="Models\ICoin.cs" />
+    <Compile Include="Models\ICurrency.cs" />
+    <Compile Include="Models\ICurrencyRepo.cs" />
+    <Compile Include="Models\Program.cs" />
+    <Compile Include="Models\USCoin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
