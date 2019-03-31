@@ -24,7 +24,7 @@ namespace WPFCoinMidterm.Models
             Coins.Add(c);
         }
 
-        public ICurrencyRepo CreateChange(double Amount)
+        public static ICurrencyRepo CreateChange(double Amount)
         {
             CurrencyRepo change = new CurrencyRepo();
             while(Amount > 0)
@@ -78,7 +78,7 @@ namespace WPFCoinMidterm.Models
             return change;
         }
 
-        public ICurrencyRepo CreateChange(double AmountTendered, double TotalCost)
+        public static ICurrencyRepo CreateChange(double AmountTendered, double TotalCost)
         {
             if(TotalCost > AmountTendered)
             {
@@ -130,6 +130,19 @@ namespace WPFCoinMidterm.Models
                 aggregateValue += c.MonetaryValue;
             }
             return aggregateValue;
+        }
+
+        public string[] CoinNames()
+        {
+
+            List<string> Names = new List<string>();
+
+            foreach(Coin c in Coins)
+            {
+                Names.Add(c.Name);
+            }
+
+            return Names.ToArray();
         }
     }
 }

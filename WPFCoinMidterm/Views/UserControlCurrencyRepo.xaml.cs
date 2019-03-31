@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCoinMidterm.ViewModels;
+using WPFCoinMidterm.Models;
 
 namespace WPFCoinMidterm.Views
 {
@@ -20,9 +22,35 @@ namespace WPFCoinMidterm.Views
     /// </summary>
     public partial class UserControlCurrencyRepo : UserControl
     {
-        public UserControlCurrencyRepo()
+        CurrencyRepo repo;
+        ViewModelCurrencyRepo ViewModelRepo;
+
+
+        public UserControlCurrencyRepo(ViewModelCurrencyRepo ViewModelRepo)
         {
             InitializeComponent();
+            this.ViewModelRepo = ViewModelRepo;
+            repo = ViewModelRepo.wallet;
+            this.DataContext = ViewModelRepo;
+        }
+
+        private void ButtonSubmit_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                repo = (CurrencyRepo)CurrencyRepo.CreateChange(Convert.ToDouble(txtAmount.Text));
+
+                this.DataContext = ViewModelRepo;
+            }
+            catch
+            {
+                txtAmount.Text = "Enter Amound Here! (Only Numberic Characters Allowed!)";
+            }
+        }
+
+        private void TxtAmount_GotFocus(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

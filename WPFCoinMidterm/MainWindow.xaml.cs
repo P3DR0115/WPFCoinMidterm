@@ -12,6 +12,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPFCoinMidterm.Views;
+using WPFCoinMidterm.ViewModels;
+using WPFCoinMidterm.Models;
 
 namespace WPFCoinMidterm
 {
@@ -20,9 +23,15 @@ namespace WPFCoinMidterm
     /// </summary>
     public partial class MainWindow : Window
     {
+        CurrencyRepo wallet;
+        ViewModelCurrencyRepo vmWallet;
+
         public MainWindow()
         {
+            wallet = new CurrencyRepo();
+            vmWallet = new ViewModelCurrencyRepo(wallet);
             InitializeComponent();
+            UserControlCurrencyRepo ucCR = new UserControlCurrencyRepo(vmWallet);
         }
     }
 }

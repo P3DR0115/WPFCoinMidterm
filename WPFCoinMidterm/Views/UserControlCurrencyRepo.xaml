@@ -8,11 +8,15 @@
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
         <StackPanel>
-            <Label>Name:</Label>
-            <TextBox x:Name="txtName" Text="{Binding Name,  Mode=TwoWay}"></TextBox>
-            <Label x:Name="label">Age:</Label>
-            <TextBox x:Name="txtAge" Text="{Binding Age, Mode=TwoWay}"></TextBox>
-            <Slider x:Name="sliderAge" Value="{Binding Text, ElementName=txtAge}" ></Slider>
+            <Label x:Name="labelAmount">Amount to Make Change For:</Label>
+            <TextBox x:Name="txtAmount" GotFocus="TxtAmount_GotFocus">Enter Amound Here! (Only Numberic Characters Allowed!)</TextBox>
+            <Button x:Name="buttonSubmit" Click="ButtonSubmit_Click">Make Change!</Button>
+            <Label x:Name="labelCoins">Coins:</Label>
+            <TextBox x:Name="txtCoins" Text="{Binding CoinCount, Mode=TwoWay}"></TextBox>
+            <Slider x:Name="sliderCoins" Value="{Binding Text, ElementName=txtCoins}" ></Slider>
+            <Label x:Name="labelCoinNames">Coins in Repo:</Label>
+            <ListBox Height="100" ItemsSource="{Binding CoinNames,Mode=TwoWay}"/>
+
         </StackPanel>
 
     </Grid>
