@@ -63,7 +63,9 @@
     <Compile Include="Models\AmericanCoins\Nickel.cs" />
     <Compile Include="Models\AmericanCoins\Penny.cs" />
     <Compile Include="Models\AmericanCoins\Quarter.cs" />
+    <Compile Include="Models\Dog.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelCurrencyRepo.cs" />
     <Compile Include="ViewModels\ViewModelDog.cs" />
     <Compile Include="Views\UserControlCurrencyRepo.xaml.cs">
       <DependentUpon>UserControlCurrencyRepo.xaml</DependentUpon>

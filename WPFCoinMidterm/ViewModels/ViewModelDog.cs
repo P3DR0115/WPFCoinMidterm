@@ -1,13 +1,13 @@
-﻿using OOP2wpfExample.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using WPFCoinMidterm.Models;
 
-namespace OOP2wpfExample.ViewModels
+namespace WPFCoinMidterm.ViewModels
 {
     public class ViewModelDog : ViewModelBase
     {

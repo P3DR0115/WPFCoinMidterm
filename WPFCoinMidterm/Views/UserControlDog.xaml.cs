@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace OOP2wpfExample.Views
+namespace WPFCoinMidterm.Views
 {
     /// <summary>
     /// Interaction logic for UserControlDog.xaml

@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using WPFCoinMidterm.ViewModels;
 
-namespace WPFCoinMidterm.Models
+namespace WPFCoinMidterm.ViewModels
 {
-    public interface ICoin : ICurrency
+    class ViewModelCurrencyRepo : ViewModelBase
     {
-        int Year { get; }
+
     }
 }

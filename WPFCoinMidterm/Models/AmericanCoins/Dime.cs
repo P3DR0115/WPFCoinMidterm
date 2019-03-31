@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace OOP2_CoinProgram
+namespace WPFCoinMidterm.Models
 {
     public class Dime : USCoin
     {
