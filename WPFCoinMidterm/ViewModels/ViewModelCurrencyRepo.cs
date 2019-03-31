@@ -20,31 +20,31 @@ namespace WPFCoinMidterm.ViewModels
         public int CoinCount
         {
             get { return this.wallet.GetCoinCount(); }
-            //set
-            //{
-            //    RaisePropertyChanged();
-            //    this.wallet.Coins.Count = value;
-            //}
+            set
+            {
+                RaisePropertyChanged();
+                //this.wallet.GetCoinCount = value;
+            }
         }
 
         public string[] CoinNames
         {
             get { return this.wallet.CoinNames(); }
-            //set
-            //{
-            //    RaisePropertyChanged();
-            //    this.dog.Name = value;
-            //}
+            set
+            {
+                RaisePropertyChanged();
+                //this.dog.Name = value;
+            }
         }
 
         public double TotalValue
         {
             get { return this.wallet.TotalValue(); }
-            //set
-            //{
-            //    RaisePropertyChanged();
-            //    this.dog.Age = value;
-            //}
+            set
+            {
+                RaisePropertyChanged();
+                //this.dog.Age = value;
+            }
         }
     }
 }

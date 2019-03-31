@@ -33,5 +33,10 @@ namespace WPFCoinMidterm
             InitializeComponent();
             UserControlCurrencyRepo ucCR = new UserControlCurrencyRepo(vmWallet);
         }
+
+        private void UserControlCurrencyRepo1_Loaded(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

@@ -25,7 +25,10 @@ namespace WPFCoinMidterm.Views
         CurrencyRepo repo;
         ViewModelCurrencyRepo ViewModelRepo;
 
-
+        public UserControlCurrencyRepo():this(new ViewModelCurrencyRepo(new CurrencyRepo()))
+        {
+            InitializeComponent();
+        }
         public UserControlCurrencyRepo(ViewModelCurrencyRepo ViewModelRepo)
         {
             InitializeComponent();
@@ -39,7 +42,7 @@ namespace WPFCoinMidterm.Views
             try
             {
                 repo = (CurrencyRepo)CurrencyRepo.CreateChange(Convert.ToDouble(txtAmount.Text));
-
+                ViewModelRepo = new ViewModelCurrencyRepo(repo);
                 this.DataContext = ViewModelRepo;
             }
             catch
