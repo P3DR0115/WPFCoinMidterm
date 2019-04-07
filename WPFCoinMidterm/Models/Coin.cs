@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFCoinMidterm.Models
 {
+    [Serializable]
     public abstract class Coin : ICoin
     {
         public double MonetaryValue { get; set; }

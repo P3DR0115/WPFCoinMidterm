@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFCoinMidterm.Models
 {
+    [Serializable]
     public enum USCoinMintMark
     {
         P,  // Philidelphia
@@ -14,6 +15,7 @@ namespace WPFCoinMidterm.Models
         W // West Point 
     }
 
+    [Serializable]
     public abstract class USCoin : Coin
     {
         public USCoinMintMark MintMark;

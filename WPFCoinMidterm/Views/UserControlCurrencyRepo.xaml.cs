@@ -53,7 +53,12 @@ namespace WPFCoinMidterm.Views
 
         private void TxtAmount_GotFocus(object sender, RoutedEventArgs e)
         {
+            txtAmount.Text = "";
+        }
 
+        private void ButtonSave_Click(object sender, RoutedEventArgs e)
+        {
+            repo.SaveRepo(repo);
         }
     }
 }

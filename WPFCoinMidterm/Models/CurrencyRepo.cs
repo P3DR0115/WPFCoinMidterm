@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace WPFCoinMidterm.Models
 {
+    [Serializable]
     public class CurrencyRepo : ICurrencyRepo
     {
+        public static string SaveLocation = AppDomain.CurrentDomain.BaseDirectory + "CurrencyRepoSave.txt";
         public List<ICoin> Coins { get; set; }
 
         public CurrencyRepo()
@@ -143,6 +145,92 @@ namespace WPFCoinMidterm.Models
             }
 
             return Names.ToArray();
+        }
+
+        public void SaveRepo(CurrencyRepo SentRepo)
+        {
+            // At the risk of possible data loss, I have to clear the inventory save file in order to prevent the player
+            // from basically never losing an item if the last item in their inventory happens to reach 0 durability
+            //InventoryList.Reverse();
+            //System.IO.File.Create(SaveInventorylocation);
+
+            List<string> RepoData = new List<string>();
+
+            foreach(USCoin c in SentRepo.Coins)
+            {
+                RepoData.Add(c.Name + ',' + c.MonetaryValue + ',' + c.Year);
+            }
+
+            //System.IO.File.AppendAllLines(SaveInventorylocation, ALLINVENTORYINFO);
+            System.IO.File.WriteAllLines(SaveLocation, RepoData.ToArray());
+        }
+
+        public void LoadRepo()
+        {
+            try
+            {
+                // Get all the repo data and place it in a temporary string array;
+                string[] RepoLoadedData = System.IO.File.ReadAllLines(SaveLocation);
+                
+                for (int CoinPosition = 0; CoinPosition < RepoLoadedData.Length; CoinPosition++)
+                {
+                    // Take a single loaded item from the array and separate the components into another array for transfer
+                    string[] ReadCoin = RepoLoadedData[CoinPosition].Split(',');
+
+                    // Check if the ReadCoin is blank. If not, add to repo;
+                    if (ReadCoin[0] != "")
+                    {
+                        switch(ReadCoin[0])
+                        {
+                            case "Penny":
+                                {
+                                    Penny tempC = new Penny();
+                                    tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    break;
+                                }
+                            case "Nickel":
+                                {
+                                    Nickel tempC = new Nickel();
+                                    tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    break;
+                                }
+                            case "Dime":
+                                {
+                                    Dime tempC = new Dime();
+                                    tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    break;
+                                }
+                            case "Quarter":
+                                {
+                                    Quarter tempC = new Quarter();
+                                    tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    break;
+                                }
+                            case "Half Dollar":
+                                {
+                                    HalfDollar tempC = new HalfDollar();
+                                    tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    break;
+                                }
+                            case "Dollar Coin":
+                                {
+                                    DollarCoin tempC = new DollarCoin();
+                                    tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    break;
+                                }
+                        }
+
+                    }
+                }
+
+                //loadInvSuccess = true;
+            }
+            catch (Exception e)
+            {
+                // Nothing to load?
+                //ALLINVENTORYINFO.Initialize();
+                //loadInvSuccess = false;
+            }
         }
     }
 }

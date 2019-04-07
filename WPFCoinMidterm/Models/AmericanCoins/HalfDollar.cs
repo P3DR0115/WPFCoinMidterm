@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace WPFCoinMidterm.Models
 {
+    [Serializable]
     public class HalfDollar : USCoin
     {
         public HalfDollar() : this(USCoinMintMark.D)

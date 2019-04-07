@@ -13,9 +13,10 @@
             <Button x:Name="buttonSubmit" Click="ButtonSubmit_Click">Make Change!</Button>
             <Label x:Name="labelCoins">Coins:</Label>
             <TextBox x:Name="txtCoins" Text="{Binding CoinCount, Mode=TwoWay}"></TextBox>
-            <Slider x:Name="sliderCoins" Value="{Binding Text, ElementName=txtCoins}" ></Slider>
+            <Slider x:Name="sliderCoins" Value="{Binding Text, ElementName=txtCoins, Mode=OneWay}" IsEnabled="False" ></Slider>
             <Label x:Name="labelCoinNames">Coins in Repo:</Label>
             <ListBox Height="100" ItemsSource="{Binding CoinNames,Mode=TwoWay}"/>
+            <Button x:Name="buttonSave" Click="ButtonSave_Click">Save This Repo!</Button>
 
         </StackPanel>
 
