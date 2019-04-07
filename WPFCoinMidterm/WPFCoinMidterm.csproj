@@ -65,8 +65,12 @@
     <Compile Include="Models\AmericanCoins\Quarter.cs" />
     <Compile Include="Models\Dog.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
+    <Compile Include="ViewModels\ViewModelCreateCurrencyRepo.cs" />
     <Compile Include="ViewModels\ViewModelCurrencyRepo.cs" />
     <Compile Include="ViewModels\ViewModelDog.cs" />
+    <Compile Include="Views\UserControlCreateCurrencyRepo.xaml.cs">
+      <DependentUpon>UserControlCreateCurrencyRepo.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\UserControlCurrencyRepo.xaml.cs">
       <DependentUpon>UserControlCurrencyRepo.xaml</DependentUpon>
     </Compile>
@@ -85,6 +89,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\UserControlCreateCurrencyRepo.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\UserControlCurrencyRepo.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

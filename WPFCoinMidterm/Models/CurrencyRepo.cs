@@ -147,6 +147,26 @@ namespace WPFCoinMidterm.Models
             return Names.ToArray();
         }
 
+        public string[] CoinOptions()
+        {
+            List<Coin> CoinTypes = new List<Coin>();
+            CoinTypes.Add(new Penny());
+            CoinTypes.Add(new Nickel());
+            CoinTypes.Add(new Dime());
+            CoinTypes.Add(new Quarter());
+            CoinTypes.Add(new HalfDollar());
+            CoinTypes.Add(new DollarCoin());
+
+            string[] Options = new string[6];
+            for(int i = 0; i < CoinTypes.Count; i++)
+            {
+                Options[i] = CoinTypes[i].Name;
+            }
+
+            return Options;
+
+        }
+
         public void SaveRepo(CurrencyRepo SentRepo)
         {
             // At the risk of possible data loss, I have to clear the inventory save file in order to prevent the player
@@ -165,8 +185,10 @@ namespace WPFCoinMidterm.Models
             System.IO.File.WriteAllLines(SaveLocation, RepoData.ToArray());
         }
 
-        public void LoadRepo()
+        public CurrencyRepo LoadRepo()
         {
+            CurrencyRepo LoadedRepo = new CurrencyRepo();
+
             try
             {
                 // Get all the repo data and place it in a temporary string array;
@@ -174,6 +196,7 @@ namespace WPFCoinMidterm.Models
                 
                 for (int CoinPosition = 0; CoinPosition < RepoLoadedData.Length; CoinPosition++)
                 {
+
                     // Take a single loaded item from the array and separate the components into another array for transfer
                     string[] ReadCoin = RepoLoadedData[CoinPosition].Split(',');
 
@@ -186,43 +209,49 @@ namespace WPFCoinMidterm.Models
                                 {
                                     Penny tempC = new Penny();
                                     tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    LoadedRepo.AddCoin(tempC);
                                     break;
                                 }
                             case "Nickel":
                                 {
                                     Nickel tempC = new Nickel();
                                     tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    LoadedRepo.AddCoin(tempC);
                                     break;
                                 }
                             case "Dime":
                                 {
                                     Dime tempC = new Dime();
                                     tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    LoadedRepo.AddCoin(tempC);
                                     break;
                                 }
                             case "Quarter":
                                 {
                                     Quarter tempC = new Quarter();
                                     tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    LoadedRepo.AddCoin(tempC);
                                     break;
                                 }
                             case "Half Dollar":
                                 {
                                     HalfDollar tempC = new HalfDollar();
                                     tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    LoadedRepo.AddCoin(tempC);
                                     break;
                                 }
                             case "Dollar Coin":
                                 {
                                     DollarCoin tempC = new DollarCoin();
                                     tempC.Year = Convert.ToInt32(ReadCoin[2]);
+                                    LoadedRepo.AddCoin(tempC);
                                     break;
                                 }
                         }
 
                     }
                 }
-
+                return LoadedRepo;
                 //loadInvSuccess = true;
             }
             catch (Exception e)
@@ -230,6 +259,7 @@ namespace WPFCoinMidterm.Models
                 // Nothing to load?
                 //ALLINVENTORYINFO.Initialize();
                 //loadInvSuccess = false;
+                return LoadedRepo;
             }
         }
     }
