@@ -25,14 +25,16 @@ namespace WPFCoinMidterm
     {
         CurrencyRepo wallet;
         ViewModelCreateCurrencyRepo vmWallet;
+        ViewModelCurrencyRepo vmWallet2;
 
         public MainWindow()
         {
             wallet = new CurrencyRepo();
             vmWallet = new ViewModelCreateCurrencyRepo(wallet);
+            vmWallet2 = new ViewModelCurrencyRepo(wallet);
             InitializeComponent();
-            //UserControlCurrencyRepo ucCR = new UserControlCurrencyRepo(vmWallet);
-            UserControlCreateCurrencyRepo ucCR = new UserControlCreateCurrencyRepo(vmWallet);
+            UserControlCurrencyRepo ucCR = new UserControlCurrencyRepo(vmWallet2);
+            UserControlCreateCurrencyRepo ucCCR = new UserControlCreateCurrencyRepo(vmWallet);
         }
 
         private void UserControlCurrencyRepo1_Loaded(object sender, RoutedEventArgs e)

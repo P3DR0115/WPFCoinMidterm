@@ -107,5 +107,15 @@ namespace WPFCoinMidterm.Views
                 // Failed to load
             }
         }
+
+        private void ButtonClear_Click(object sender, RoutedEventArgs e)
+        {
+            repo = new CurrencyRepo();
+
+            ViewModelRepo = new ViewModelCreateCurrencyRepo(repo.LoadRepo());
+            this.DataContext = ViewModelRepo;
+            string value = Convert.ToString(repo.TotalValue());
+            labelRepoValueDisplay.Content = "$" + value;
+        }
     }
 }
