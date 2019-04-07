@@ -112,7 +112,7 @@ namespace WPFCoinMidterm.Views
         {
             repo = new CurrencyRepo();
 
-            ViewModelRepo = new ViewModelCreateCurrencyRepo(repo.LoadRepo());
+            ViewModelRepo = new ViewModelCreateCurrencyRepo(repo);
             this.DataContext = ViewModelRepo;
             string value = Convert.ToString(repo.TotalValue());
             labelRepoValueDisplay.Content = "$" + value;
